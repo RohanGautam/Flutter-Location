@@ -34,8 +34,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     getcurrentLoc();
+    // getLocationStream();
   }
-
+  void getLocationStream() async {
+    var cl=ContinuousLocation();
+    await cl.startGettingLocation();
+  }
   void getcurrentLoc() async{
     otl = OneTimeLocation();
     var latLong = await otl.getCurrentLocation();
